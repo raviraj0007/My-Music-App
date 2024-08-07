@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         retrofitData.enqueue(object : Callback<MyData> {
             override fun onResponse(p0: Call<MyData?>, p1: Response<MyData?>) {
-                val datalist= p1.body()
+                val datalist= p1.body()?.data
                 val textView= findViewById<TextView>(R.id.hellotext)
                 textView.text= datalist.toString()
                 Log.d("TAG: onResponse", "onResponse: " + p1.body())
